@@ -10,6 +10,8 @@ pt-BR:
         current_sign_in_at: Atualmente logado em
         current_sign_in_ip: IP do acesso atual
         email: E-mail
+        name: Nome
+        cpf: CPF
         encrypted_password: Senha criptografada
         failed_attempts: Tentativas sem sucesso
         last_sign_in_at: Último acesso em
@@ -103,7 +105,8 @@ pt-BR:
         update: Atualizar
         we_need_your_current_password_to_confirm_your_changes: precisamos da sua senha atual para confirmar suas mudanças
       new:
-        sign_up: Inscrever-se
+        sign_up: Cadastra-se
+        characters_minimum: Caracteres mínimo
       signed_up: Bem vindo! Você realizou seu registro com sucesso.
       signed_up_but_inactive: Você se inscreveu com sucesso, porém nós não podemos autenticá-lo porque sua conta ainda não foi ativada.
       signed_up_but_locked: Você se inscreveu com sucesso. Porém nós não podemos autenticá-lo porque sua conta está bloqueada.
@@ -125,7 +128,7 @@ pt-BR:
         forgot_your_password: Esqueceu sua senha?
         sign_in: Login
         sign_in_with_provider: Entrar com %{provider}
-        sign_up: Inscrever-se
+        sign_up: Cadastra-se
       minimum_password_length:
         one: "(Mínimo de %{count} caractere)"
         other: "(Mínimo de %{count} caracteres)"
