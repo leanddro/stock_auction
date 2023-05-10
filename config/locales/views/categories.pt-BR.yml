@@ -1,0 +1,16 @@
+pt-BR:
+  categories:
+    index:
+      categories: Categorias
+      name: Nome
+      description: Descrição
+      active: Ativo?
+      new: Nova
+    new:
+      register: Cadastrar
+    show:
+      status: Estado
+      active: Ativo
+      inactive: Inativo
+      activate: Ativar
+      inactivate: Desativar
