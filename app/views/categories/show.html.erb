@@ -1,0 +1,20 @@
+<section class="w-full px-6">
+  <div class="card lg:card-side bg-base-300 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title"><%= @category.name %></h2>
+      <p><%= @category.description %></p>
+      <div class="flex items-center w-min gap-3">
+        <%= t(".status") %>
+        <p class="alert <%= @category.active ? 'alert-success' : 'alert-warning' %> shadow-lg">
+          <%= @category.active ? t(".active") : t(".inactive") %>
+        </p>
+      </div>
+      <div class="card-actions justify-end">
+        <%= form_with url: toggle_category_path(@category) , method: :post, data: { turbo: false } do |f| %>
+            <%= f.check_box :active,  checked: !@category.active, class: "hidden" %>
+            <%= f.submit @category.active ? t(".inactivate") : t(".activate"), class: "btn  #{@category.active ? 'btn-error' : 'btn-success'}" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
