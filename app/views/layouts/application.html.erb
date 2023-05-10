@@ -11,7 +11,10 @@
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
+    <%= render "shared/navbar" %>
+    <div class="mx-5">
+      <%= render "shared/messages" %>
+    </div>
     <%= yield %>
   </body>
 </html>

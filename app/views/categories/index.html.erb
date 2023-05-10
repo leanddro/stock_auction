@@ -1,0 +1,29 @@
+<section class="overflow-x-auto w-full px-6">
+  <div class="flex justify-between">
+    <h2 class="text-3xl"><%= t(".categories") %></h2>
+    <%= link_to t(".new"), new_category_path, class: "btn btn-accent" %>
+  </div>
+  <table class="table w-full mt-4 border-t-gray-800 border-y-2">
+    <thead>
+      <tr>
+        <th><%= t(".name") %></th>
+        <th><%= t(".description") %></th>
+        <th><%= t(".active") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr data-controller="category"
+            data-category-id="<%= category.id %>">
+          <td><%= link_to category.name, category %></td>
+          <td><%= truncate(category.description, length: 60) %></td>
+          <td><input type="checkbox" name="active" id="active" class="toggle"
+                <% if category.active %>checked<% end %>
+                data-action = "category#toggle"
+                data-target = "category.active"
+          ></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

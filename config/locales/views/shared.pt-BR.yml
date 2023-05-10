@@ -1,0 +1,8 @@
+pt-BR:
+  shared:
+    navbar:
+      log_in: Entrar
+      log_out: Sair
+      sign_up: Cadastra-se
+      categories: Categorias
+
