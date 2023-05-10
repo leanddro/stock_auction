@@ -9,7 +9,8 @@ describe 'Usuário faze log_in no sistema' do
     within 'nav' do
       click_on 'Entrar'
     end
-      within 'form' do
+
+    within 'form' do
       fill_in 'E-mail', with: 'leandro@email.com'
       fill_in 'Senha', with: 'password'
 
@@ -18,4 +19,3 @@ describe 'Usuário faze log_in no sistema' do
 
     expect(page).to have_content 'Leandro'
   end
-end
