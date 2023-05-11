@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :categories, only: %i(index new create update show) do
     post 'toggle', on: :member
   end
+
+  resources :items, only: %i(index new create show)
 end
