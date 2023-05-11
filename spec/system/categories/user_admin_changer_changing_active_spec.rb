@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe 'Usuário admin na tela de detalhe da categoria e muda o status de ativo' do
   it 'com sucesso alterando para inativo' do
     user = User.create!(name: 'Admir', cpf: '054.732.630-03', email: 'admir@leilaodogalpao.com.br', password: 'password')

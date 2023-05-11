@@ -19,3 +19,4 @@ describe 'Usuário faze log_in no sistema' do
 
     expect(page).to have_content 'Leandro'
   end
+end
