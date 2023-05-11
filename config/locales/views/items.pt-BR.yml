@@ -1,0 +1,12 @@
+pt-BR:
+  items:
+    index:
+      new: Novo
+      items: Itens
+    create:
+      success: Sucesso
+      error: Não foi possível cadastrar item
+    form:
+      register: Cadastrar
+    item:
+      dimension: Dimensões
