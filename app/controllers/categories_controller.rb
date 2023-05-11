@@ -1,6 +1,4 @@
-class CategoriesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :require_admin
+class CategoriesController < AdminController
 
   def index
     @categories = Category.all
@@ -33,12 +31,6 @@ class CategoriesController < ApplicationController
   end
 
   private
-  def require_admin
-    unless current_user.admin?
-      flash[:alert] = t('forbidden')
-      redirect_to root_path
-    end
-  end
 
   def category_params
     params.require(:category)
