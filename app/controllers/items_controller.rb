@@ -28,6 +28,6 @@ class ItemsController < AdminController
 
   def item_params
     params.require(:item)
-          .permit(:name, :description, :weight, :width, :height, :depth, :category_id )
+          .permit(:name, :description, :weight, :width, :height, :depth, :category_id, :photo)
   end
 end
