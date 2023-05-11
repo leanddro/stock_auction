@@ -1,4 +1,7 @@
 <div class="card w-full bg-base-300 shadow-xl">
+  <% if item.photo.attached? %>
+    <figure><%= image_tag item.photo, class: 'w-1/2' %></figure>
+  <% end %>
   <div class="card-body">
     <h2 class="card-title"><%= item.name %></h2>
     <p><%= item.description %></p>
