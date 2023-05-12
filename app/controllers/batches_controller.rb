@@ -1,6 +1,6 @@
 class BatchesController < ApplicationController
   def index
-
+    @batches = Batch.all
   end
 
   def new
@@ -21,10 +21,19 @@ class BatchesController < ApplicationController
     @batch = Batch.find(params[:id])
   end
 
+  def approve
+    batch = Batch.find(params[:id])
+    if batch.create_by != current_user && batch.pending?
+      batch.approved!
+      return redirect_to batch, notice: t('.success')
+    end
+    redirect_to batch, alert: t('.failed')
+  end
+
   private
 
   def batch_params
     params.require(:batch)
-          .permit(:code, :start_at, :end_at, :minimum_bid, :minimum_bid_diference)
+          .permit(:code, :start_at, :end_at, :minimum_bid, :minimum_bid_difference)
   end
 end
