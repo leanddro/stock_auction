@@ -1,0 +1,28 @@
+<div class="w-full px-4">
+  <h2><%= t(".profile") %></h2>
+  <div class="card w-full bg-base-300 shadow-xl flex flex-row">
+    <div class="card-body">
+      <h2 class="card-title"><%= t(".name")%>: <%= @user.name %></h2>
+      <p>
+        <span class="font-bold text-lg"><%= t(".email") %>:</span>
+        <%= @user.email %>
+      </p>
+      <p>
+        <span class="font-bold text-lg"><%= t(".role") %>:</span>
+        <%= t(@user.role) %>
+      </p>
+    </div>
+  </div>
+  <% if @user.admin? %>
+     <h2> <%= t(".pending") %></h2>
+      <div id="pending" class="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+        <% @batches_pending.each do |p| %>
+          <%= link_to p do %>
+            <%= render p, show_actions: false %>
+          <% end %>
+        <% end %>
+      </div>
+  <% end %>
+</div>
+
+
