@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: %i(index new create show)
+  resources :batches, only: %i(index new create show)
 end

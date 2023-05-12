@@ -1,0 +1,26 @@
+pt-BR:
+  activerecord:
+    models:
+      batch:
+        one: Lote
+        other: Lotes
+    attributes:
+      batch:
+        code: Código
+        start_at: Data de Inicio
+        end_at: Data de Fim
+        minimum_bid: Lance mínimo inicial
+        minimum_bid_diference: Diferença minima entre lances
+        create_by: Criado por
+        approved_by: Aprovado por
+        winner: Ganhado por
+    errors:
+      models:
+        batch:
+          attributes:
+            code:
+              invalid: no formato incorreto
+            end_at:
+              smaller_start: não pode ser menor que a data de início
+            start_at:
+              smaller_today: não pode ser menor que a data atual
