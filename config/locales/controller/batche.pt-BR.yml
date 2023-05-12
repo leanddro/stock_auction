@@ -1,0 +1,4 @@
+pt-BR:
+  batches:
+    create:
+      not_registered: Não foi possível cadastrar o lote

@@ -1,0 +1,15 @@
+pt-BR:
+  batches:
+    index:
+      new: Novo
+      batches: Lotes
+    new:
+      new_batch: Novo lotes
+    form:
+      register: Cadastrar
+    show:
+      code: Código
+      start_at: Data de inicio
+      end_at: Data de fim
+      minimum_bid: Lance mínimo inicial
+      minimum_bid_diference: Diferença minima entre lances
