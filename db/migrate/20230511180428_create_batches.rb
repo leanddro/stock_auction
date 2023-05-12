@@ -5,7 +5,7 @@ class CreateBatches < ActiveRecord::Migration[7.0]
       t.datetime :start_at
       t.datetime :end_at
       t.integer :minimum_bid
-      t.integer :minimum_bid_diference
+      t.integer :minimum_bid_difference
       t.integer :status, default: 1
       t.references :create_by, references: :users, null: false, foreign_key: { to_table: :users}
       t.references :approved_by, references: :users, null: true, foreign_key: { to_table: :users}
