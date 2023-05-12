@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_153432) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_11_180428) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,9 +34,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_153432) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "batches", force: :cascade do |t|
+    t.string "code", limit: 9
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer "minimum_bid"
+    t.integer "minimum_bid_diference"
+    t.integer "status", default: 1
+    t.integer "create_by_id", null: false
+    t.integer "approved_by_id"
+    t.integer "winner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["approved_by_id"], name: "index_batches_on_approved_by_id"
+    t.index ["code"], name: "index_batches_on_code", unique: true
+    t.index ["create_by_id"], name: "index_batches_on_create_by_id"
+    t.index ["winner_id"], name: "index_batches_on_winner_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -84,6 +102,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_153432) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "batches", "users", column: "approved_by_id"
+  add_foreign_key "batches", "users", column: "create_by_id"
+  add_foreign_key "batches", "users", column: "winner_id"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "create_by_id"
 end
