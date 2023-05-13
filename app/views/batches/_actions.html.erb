@@ -1,0 +1,11 @@
+<div class="flex p-2 gap-8">
+  <% if batch.pending? && batch.create_by.id != current_user.id %>
+    <%= link_to t(".approve"), approve_batch_path(batch.id), data: {turbo_method: :patch}, class: 'btn btn-accent' %>
+  <% end %>
+  <% if batch.pending? || batch.approved? %>
+    <%= link_to t(".cancel"), cancel_batch_path(batch.id), data: {turbo_method: :patch}, class: 'btn btn-warning' %>
+  <% end %>
+  <% if batch.approved? %>
+    <%= link_to t(".finish"), finish_batch_path(batch.id), data: {turbo_method: :patch}, class: 'btn btn-success' %>
+  <% end %>
+</div>

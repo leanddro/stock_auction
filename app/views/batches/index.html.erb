@@ -3,4 +3,13 @@
     <h2 class="text-3xl"><%= t(".batches") %></h2>
     <%= link_to t(".new"), new_batch_path, class: "btn btn-accent" %>
   </div>
+  <div class="divider bg-slate-200"></div>
+  <h2 class="text-3xl my-6"> <%= t(".pending") %></h2>
+  <div id="pending" class="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+    <% @batches.pending.each do |p| %>
+      <%= link_to p do %>
+        <%= render p, show_actions: false %>
+      <% end %>
+    <% end %>
+  </div>
 </section>

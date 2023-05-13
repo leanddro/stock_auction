@@ -2,3 +2,6 @@ pt-BR:
   batches:
     create:
       not_registered: Não foi possível cadastrar o lote
+    approve:
+      failed: Não foi possível aprovar lote
+      success: Lote aprovado com sucesso

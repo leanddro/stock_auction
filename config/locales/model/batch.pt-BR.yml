@@ -10,7 +10,7 @@ pt-BR:
         start_at: Data de Inicio
         end_at: Data de Fim
         minimum_bid: Lance mínimo inicial
-        minimum_bid_diference: Diferença minima entre lances
+        minimum_bid_difference: Diferença minima entre lances
         create_by: Criado por
         approved_by: Aprovado por
         winner: Ganhado por

@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_180428) do
     t.datetime "start_at"
     t.datetime "end_at"
     t.integer "minimum_bid"
-    t.integer "minimum_bid_diference"
+    t.integer "minimum_bid_difference"
     t.integer "status", default: 1
     t.integer "create_by_id", null: false
     t.integer "approved_by_id"

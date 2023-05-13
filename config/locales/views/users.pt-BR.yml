@@ -1,0 +1,7 @@
+pt-BR:
+  users:
+    profile:
+      profile: Perfil
+      name: Nome
+      email: E-mail
+      role: Função

@@ -1,2 +1,4 @@
 pt-BR:
   currency:  "R$ %{value},00"
+  admin: Administrador
+  regular: Usuário

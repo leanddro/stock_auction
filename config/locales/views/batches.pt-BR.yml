@@ -3,13 +3,22 @@ pt-BR:
     index:
       new: Novo
       batches: Lotes
+      pending: Pendentes
+      approved: Aprovados
+      canceled: Cancelados
+      finishes: Finalizados
     new:
       new_batch: Novo lotes
     form:
       register: Cadastrar
     show:
+    batch:
       code: Código
       start_at: Data de inicio
       end_at: Data de fim
       minimum_bid: Lance mínimo inicial
-      minimum_bid_diference: Diferença minima entre lances
+      minimum_bid_difference: Diferença minima entre lances
+    actions:
+      approve: Aprovar
+      finish: Finalizar
+      cancel: Cancelar

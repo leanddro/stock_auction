@@ -73,21 +73,21 @@ RSpec.describe Batch, type: :model do
     end
   end
 
-  describe '#minimum_bid_diference' do
+  describe '#minimum_bid_difference' do
     it 'is required' do
       batch = Batch.new
       result = batch.valid?
 
       expect(result).to be false
-      expect(batch.errors[:minimum_bid_diference]).to include 'não pode ficar em branco'
+      expect(batch.errors[:minimum_bid_difference]).to include 'não pode ficar em branco'
     end
 
     it 'is greater than 0' do
-      batch = Batch.new(minimum_bid_diference: 0)
+      batch = Batch.new(minimum_bid_difference: 0)
       result = batch.valid?
 
       expect(result).to be false
-      expect(batch.errors[:minimum_bid_diference]).to include 'deve ser maior que 0'
+      expect(batch.errors[:minimum_bid_difference]).to include 'deve ser maior que 0'
     end
   end
 

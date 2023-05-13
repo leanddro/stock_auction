@@ -4,9 +4,9 @@ class Batch < ApplicationRecord
   belongs_to :approved_by, class_name: "User", foreign_key: "approved_by_id", optional: true
   belongs_to :winner, class_name: "User", foreign_key: "winner_id", optional: true
 
-  validates :code, :start_at, :end_at, :minimum_bid, :minimum_bid_diference, presence: true
+  validates :code, :start_at, :end_at, :minimum_bid, :minimum_bid_difference, presence: true
   validates :code, uniqueness: true, format: { with:  /\A[a-zA-Z]{3}[a-zA-Z0-9\-!@#$%^&*_+|~=`{}\\[\\]:\"'<>?,.]{6}\z/ }
-  validates :minimum_bid, :minimum_bid_diference, comparison: { greater_than: 0 }
+  validates :minimum_bid, :minimum_bid_difference, comparison: { greater_than: 0 }
   validates :start_at, comparison: { greater_than: DateTime.now, message: :smaller_today }
   validates :end_at, comparison: { greater_than: :start_at, message: :smaller_start }
 
