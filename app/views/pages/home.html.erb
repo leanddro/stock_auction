@@ -1,2 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="flex flex-col">
+  <section id="current_batches" class="w-full px-4 my-4">
+    <div class="flex justify-between mb-4">
+      <h2 class="text-3xl"><%= t(".current_batches") %></h2>
+    </div>
+    <div class="divider bg-slate-200"></div>
+    <div id="pending" class="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+      <% @current_batches.each do |cb| %>
+        <%= link_to batch_detail_path(cb.id) do %>
+          <%= render "batch_minimal", batch: cb %>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+  <section id="next_batches" class="w-full px-4 my-4">
+    <div class="flex justify-between mb-4">
+      <h2 class="text-3xl"><%= t(".next_batches") %></h2>
+    </div>
+    <div class="divider bg-slate-200"></div>
+    <div id="pending" class="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+      <% @next_batches.each do |nb| %>
+        <%= link_to batch_detail_path(nb.id) do %>
+          <%= render nb, show_actions: false %>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+</div>
