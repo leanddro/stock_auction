@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
+  get 'lotes/:id', to: 'pages#batch_detail', as: 'batch_detail'
+
   get 'users/profile/', to: 'users#profile', as: 'user_profile'
 
   devise_for :users
