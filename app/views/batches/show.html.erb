@@ -1,3 +1,33 @@
-<div class="px-4">
-  <%= render 'batch', batch: @batch, show_actions: true %>
+<div class="w-full px-4">
+  <div>
+    <%= render 'batch', batch: @batch, show_actions: true %>
+  </div>
+  <div class="divide mt-8"></div>
+  <div class="grid grid-cols-2">
+    <div class="col-span-1 p-1 border-r-2 border-slate-200">
+     <h2 class="text-3xl"> <%= t(".items") %></h2>
+      <% @batch.items.each do |item| %>
+        <div id="items" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+          <%= link_to item do %>
+            <%= render item %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-span-1 p-1">
+      <h2 class="text-3xl"> <%= t(".add_items") %></h2>
+      <div id="add_items" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+        <% @items.each do |item| %>
+          <div class="card w-full bg-base-300 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title"><%= item.name %></h2>
+              <p class="font-bold text-lg"><%= t('.code') %>: <%= item.code %></p>
+              <p><%= item.description %></p>
+            </div>
+            <%= link_to t('.add'), add_item_batch_path(@batch, item), data: { turbo_method: :post }, class:'btn btn-accent' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

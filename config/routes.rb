@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     patch 'approve', on: :member
     patch 'finish', on: :member
     patch 'cancel', on: :member
+    post 'item/:item_id', on: :member, to: 'batches#add', as: 'add_item'
   end
 end

@@ -1,4 +1,8 @@
 pt-BR:
+  pending: Pendente
+  approved: Aprovado
+  finished: Finalizado
+  canceled: Cancelado
   batches:
     index:
       new: Novo
@@ -12,13 +16,20 @@ pt-BR:
     form:
       register: Cadastrar
     show:
+      items: Itens
+      add_items: Adicionar itens
+      add: Adicionar
     batch:
       code: Código
       start_at: Data de inicio
       end_at: Data de fim
       minimum_bid: Lance mínimo inicial
       minimum_bid_difference: Diferença minima entre lances
+      status: Estado
     actions:
       approve: Aprovar
       finish: Finalizar
       cancel: Cancelar
+    add:
+      success: Item adicionado com sucesso!
+      failed: Erro ao tentar adicionar item
