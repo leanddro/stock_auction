@@ -2,7 +2,10 @@ class Item < ApplicationRecord
   after_initialize :set_default_status, :if => :new_record?
   belongs_to :create_by, class_name: "User", foreign_key: "create_by_id"
   belongs_to :category
+  belongs_to :batch, optional: true
   has_one_attached :photo
+  has_many :batch_items
+  has_many :batches, through: :batch_items
 
   before_validation :generate_code, on: :create
   validates :name, :description, :weight, :width, :height, :depth, presence: true

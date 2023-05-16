@@ -10,3 +10,4 @@ pt-BR:
       register: Cadastrar
     item:
       dimension: Dimensões
+      code: Código

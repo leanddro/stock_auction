@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_180428) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_034200) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,6 +37,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_180428) do
     t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "batch_items", force: :cascade do |t|
+    t.integer "batch_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["batch_id"], name: "index_batch_items_on_batch_id"
+    t.index ["item_id"], name: "index_batch_items_on_item_id"
   end
 
   create_table "batches", force: :cascade do |t|
@@ -79,6 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_180428) do
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "batch_id"
+    t.index ["batch_id"], name: "index_items_on_batch_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["code"], name: "index_items_on_code", unique: true
     t.index ["create_by_id"], name: "index_items_on_create_by_id"
@@ -102,9 +113,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_180428) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "batch_items", "batches"
+  add_foreign_key "batch_items", "items"
   add_foreign_key "batches", "users", column: "approved_by_id"
   add_foreign_key "batches", "users", column: "create_by_id"
   add_foreign_key "batches", "users", column: "winner_id"
+  add_foreign_key "items", "batches"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "create_by_id"
 end

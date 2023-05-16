@@ -1,4 +1,4 @@
-class BatchesController < ApplicationController
+class BatchesController < AdminController
   def index
     @batches = Batch.all
   end
@@ -19,18 +19,35 @@ class BatchesController < ApplicationController
 
   def show
     @batch = Batch.find(params[:id])
+    @items = Item.available
   end
 
   def approve
     batch = Batch.find(params[:id])
     if batch.create_by != current_user && batch.pending?
+      batch.approved_by = current_user
       batch.approved!
       return redirect_to batch, notice: t('.success')
     end
     redirect_to batch, alert: t('.failed')
   end
 
+  def add
+    batch = Batch.find(params[:id])
+    item = Item.find(params[:item_id])
+    if item_available?(item)
+      item.batch = batch
+      item.unavailable!
+      return redirect_to batch, notice: t('.success')
+    end
+    redirect_to batch, alert: t('.failed')
+  end
+
   private
+
+  def item_available?(item)
+    return true if item.available? && item.batch_id.nil?
+  end
 
   def batch_params
     params.require(:batch)
