@@ -1,0 +1,12 @@
+pt-BR:
+  pages:
+    batch_minimal:
+        code: Código
+        start_at: Data de inicio
+        end_at: Data de fim
+        minimum_bid: Lance mínimo inicial
+        minimum_bid_difference: Diferença minima entre lances
+        status: Estado
+    home:
+      current_batches: Lotes em andamento
+      next_batches: Lotes futuros

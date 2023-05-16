@@ -1,0 +1,17 @@
+<div class="card w-full bg-base-300 shadow-xl flex flex-row">
+  <div class="card-body">
+    <h2 class="card-title"><%= t(".code")%>: <%= batch.code %></h2>
+    <p>
+      <span class="font-bold text-lg"><%= t(".end_at") %>:</span>
+      <%= l batch.end_at, format: :long %>
+    </p>
+    <p>
+      <span class="font-bold text-lg"><%= t(".minimum_bid") %>:</span>
+      <%= t('currency', value: batch.minimum_bid) %>
+    </p>
+    <p>
+      <span class="font-bold text-lg"><%= t(".minimum_bid_difference") %>:</span>
+      <%= t('currency', value: batch.minimum_bid_difference) %>
+    </p>
+  </div>
+</div>
