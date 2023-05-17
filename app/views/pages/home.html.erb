@@ -20,7 +20,7 @@
     <div id="pending" class="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
       <% @next_batches.each do |nb| %>
         <%= link_to batch_detail_path(nb.id) do %>
-          <%= render nb, show_actions: false %>
+          <%= render "batch_minimal", batch: nb %>
         <% end %>
       <% end %>
     </div>
