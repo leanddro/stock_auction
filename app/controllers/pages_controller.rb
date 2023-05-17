@@ -9,4 +9,8 @@ class PagesController < ApplicationController
     @new_bid = Bid.new
     @last_bid = @batch.bids.last
   end
+
+  def winners
+    @batches = Batch.where(status: ['finished']).reverse_order
+  end
 end

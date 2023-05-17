@@ -1,0 +1,37 @@
+<% batches.each do |batch| %>
+  <%= link_to batch_detail_path(batch.id) do %>
+    <div class="card w-full bg-base-300 shadow-xl flex flex-row">
+      <div class="card-body">
+        <h2 class="card-title"><%= t(".code")%>: <%= batch.code %></h2>
+        <p>
+          <span class="font-bold text-lg"><%= t(".start_at") %>:</span>
+          <%= l batch.start_at, format: :long %>
+        </p>
+        <p>
+          <span class="font-bold text-lg"><%= t(".end_at") %>:</span>
+          <%= l batch.end_at, format: :long %>
+        </p>
+        <p>
+          <span class="font-bold text-lg"><%= t(".status") %>:</span>
+          <%=  t(batch.status) %>
+        </p>
+        <p>
+          <span class="font-bold text-lg"><%= t(".minimum_bid") %>:</span>
+          <%= t('currency', value: batch.minimum_bid) %>
+        </p>
+        <p>
+          <span class="font-bold text-lg"><%= t(".minimum_bid_difference") %>:</span>
+          <%= t('currency', value: batch.minimum_bid_difference) %>
+        </p>
+        <p>
+          <span class="font-bold text-lg"><%= t(".winner") %>:</span>
+          <%= batch.winner.name.upcase %>
+        </p>
+        <p>
+          <span class="font-bold text-lg"><%= t(".winner_bid") %>:</span>
+          <%= t('currency', value: batch.bids.last.amount) %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
