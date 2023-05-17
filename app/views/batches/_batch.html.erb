@@ -16,11 +16,10 @@
     <p>
       <span class="font-bold text-lg"><%= t(".minimum_bid") %>:</span>
       <%= t('currency', value: batch.minimum_bid) %>
+    </p>
+    <p>
       <span class="font-bold text-lg"><%= t(".minimum_bid_difference") %>:</span>
       <%= t('currency', value: batch.minimum_bid_difference) %>
     </p>
-    <% if show_actions %>
-      <%= render "actions", batch: batch %>
-    <% end %>
   </div>
 </div>
