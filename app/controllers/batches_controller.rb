@@ -49,7 +49,6 @@ class BatchesController < AdminController
   end
 
   def cancel
-    p @batch.bids
     return redirect_to @batch, alert: t('.have_bids') if @batch.bids.present?
     @batch.canceled!
     redirect_to @batch, notice: t('.success')

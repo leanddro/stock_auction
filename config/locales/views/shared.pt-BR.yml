@@ -7,3 +7,13 @@ pt-BR:
       categories: Categorias
       items: Itens
       batches: Lotes
+      winners: Ganhadores
+    batches_cards:
+      code: Código
+      start_at: Data de inicio
+      end_at: Data de fim
+      minimum_bid: Lance mínimo inicial
+      minimum_bid_difference: Diferença minima entre lances
+      status: Estado
+      winner: Ganhador
+      winner_bid: Lance ganhador

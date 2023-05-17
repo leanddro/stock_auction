@@ -13,6 +13,10 @@
       </p>
     </div>
   </div>
+  <% if @user.regular? %>
+    <h2> <%= t(".batches_winners") %></h2>
+    <%= render "shared/batches_cards", batches: @winners %>
+  <% end %>
   <% if @user.admin? %>
      <h2> <%= t(".pending") %></h2>
       <div id="pending" class="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">

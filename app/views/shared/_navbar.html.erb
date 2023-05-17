@@ -12,6 +12,7 @@
             <li><%= link_to t(".categories"), categories_path %></li>
           <% end %>
         </div>
+        <li><%= link_to t('.winners'), winners_path %></li>
         <li><%= link_to current_user.name, user_profile_path %></li>
         <li><%= link_to t(".log_out"), destroy_user_session_path, data: {turbo_method: :delete} %></li>
       <% else %>
