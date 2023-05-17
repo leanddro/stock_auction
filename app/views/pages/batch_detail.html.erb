@@ -31,7 +31,7 @@
           </p>
         <% end %>
         <div class="divide mt-8"></div>
-        <% if @batch.end_at >= DateTime.now %>
+        <% if @batch.end_at >= DateTime.now && @batch.start_at <= DateTime.now%>
           <h2 class="card-title">Fazer lance</h2>
           <%= form_with model: @new_bid, data: {turbo: false} do |f| %>
             <input type="number" name="bid[batch_id]" value="<%= @batch.id %>" hidden>
