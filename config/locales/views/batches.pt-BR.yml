@@ -11,6 +11,7 @@ pt-BR:
       approved: Aprovados
       canceled: Cancelados
       finishes: Finalizados
+      finalizing: A finalizar
     new:
       new_batch: Novo lotes
     form:
@@ -19,6 +20,15 @@ pt-BR:
       items: Itens
       add_items: Adicionar itens
       add: Adicionar
+      code: Código
+      status: Estado
+      start_at: Data de inicio
+      end_at: Data de fim
+      minimum_bid: Lance mínimo inicial
+      minimum_bid_difference: Diferença minima entre lances
+      not_initialized: Lote não iniciado
+      bids: Lances
+      winner: Ganhador
     batch:
       code: Código
       start_at: Data de inicio
@@ -26,6 +36,8 @@ pt-BR:
       minimum_bid: Lance mínimo inicial
       minimum_bid_difference: Diferença minima entre lances
       status: Estado
+      not_initialized: Lote não iniciado
+      bids: Lances
     actions:
       approve: Aprovar
       finish: Finalizar
@@ -33,3 +45,10 @@ pt-BR:
     add:
       success: Item adicionado com sucesso!
       failed: Erro ao tentar adicionar item
+    finish:
+      erro_date: Data atual menor que a data de fim, nesse caso só pode ser cancelado
+      success: Lote finalizado com sucesso
+    cancel:
+      have_bids: Lote tem lance, então só pode finalizar
+      success: Lote foi cancelado com sucesso
+
