@@ -6,6 +6,7 @@ class BidsController < ApplicationController
     batch = Batch.find(bid_params[:batch_id])
     amount = bid_params[:amount].to_i
 
+    return redirect_to batch_detail_path(batch.id), alert: t('.not_initialized') if batch.start_at > DateTime.now
     return redirect_to batch_detail_path(batch.id), alert: t('.finished') if batch.end_at < DateTime.now
     return redirect_to batch_detail_path(batch.id), alert: t('.forbidden') if current_user.admin?
 
