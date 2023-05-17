@@ -1,6 +1,47 @@
 <div class="w-full px-4">
-  <div>
-    <%= render 'batches/batch', batch: @batch, show_actions: false %>
+  <div class="card w-full bg-base-300 shadow-xl">
+    <div class="card-body flex xl:flex-row">
+      <div class="w-1/3">
+        <h2 class="card-title"><%= t(".code")%>: <%= @batch.code %></h2>
+        <p>
+          <span class="font-bold text-lg"><%= t(".start_at") %>:</span>
+          <%= l @batch.start_at, format: :long %>
+        </p>
+        <p>
+          <span class="font-bold text-lg"><%= t(".end_at") %>:</span>
+          <%= l @batch.end_at, format: :long %>
+        </p>
+        <p>
+          <span class="font-bold text-lg"><%= t(".minimum_bid") %>:</span>
+          <%= t('currency', value: @batch.minimum_bid) %>
+        </p>
+        <p>
+          <span class="font-bold text-lg"><%= t(".minimum_bid_difference") %>:</span>
+          <%= t('currency', value: @batch.minimum_bid_difference) %>
+        </p>
+      </div>
+      <div class="w-2/3">
+        <h2 class="card-title"><%= t('.bids') %></h2>
+        <% if @last_bid.nil? %>
+          <p><%= t('.not_initialized') %></p>
+        <% else %>
+          <p>
+            <span class="font-bold text-lg"><%= t(".last_bid") %>:</span>
+            <%= t('currency', value: @last_bid.amount) %>
+          </p>
+        <% end %>
+        <div class="divide mt-8"></div>
+        <% if @batch.end_at >= DateTime.now %>
+          <h2 class="card-title">Fazer lance</h2>
+          <%= form_with model: @new_bid, data: {turbo: false} do |f| %>
+            <input type="number" name="bid[batch_id]" value="<%= @batch.id %>" hidden>
+            <%= f.label :amount, class: 'label' %>
+            <%= f.number_field :amount, min: 1, class: 'input input-bordered max-w-ws' %>
+            <%= f.submit t('.make_bid'), class: 'btn btn-success' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class="divide mt-8"></div>
   <div id="items" class="grid grid-cols-2">

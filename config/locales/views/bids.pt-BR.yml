@@ -1,0 +1,7 @@
+pt-BR:
+  bids:
+    create:
+      forbidden: Usuários administradores não podem participar do leilão
+      failed_difference: O lance tem que ser maior que o ultimo lance mais a diferença minima
+      success: O lance foi feito com sucesso
+      finished: Lote já finalizado

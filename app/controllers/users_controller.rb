@@ -8,9 +8,7 @@ class UsersController < ApplicationController
   private
 
   def set_values
-    if current_user.admin?
-      @batches_pending = Batch.where(status: 'pending').where.not(create_by: current_user)
-    end
+    @batches_pending = Batch.where(status: 'pending').where.not(create_by: current_user) if current_user.admin?
     @user = current_user
   end
 end

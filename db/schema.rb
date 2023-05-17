@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_034200) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_16_172214) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -66,6 +66,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_034200) do
     t.index ["winner_id"], name: "index_batches_on_winner_id"
   end
 
+  create_table "bids", force: :cascade do |t|
+    t.integer "batch_id", null: false
+    t.integer "user_id", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["batch_id"], name: "index_bids_on_batch_id"
+    t.index ["user_id"], name: "index_bids_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -118,6 +128,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_034200) do
   add_foreign_key "batches", "users", column: "approved_by_id"
   add_foreign_key "batches", "users", column: "create_by_id"
   add_foreign_key "batches", "users", column: "winner_id"
+  add_foreign_key "bids", "batches"
+  add_foreign_key "bids", "users"
   add_foreign_key "items", "batches"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "create_by_id"
