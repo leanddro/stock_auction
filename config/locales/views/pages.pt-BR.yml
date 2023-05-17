@@ -10,3 +10,14 @@ pt-BR:
     home:
       current_batches: Lotes em andamento
       next_batches: Lotes futuros
+    batch_detail:
+      code: Código
+      start_at: Data de inicio
+      end_at: Data de fim
+      minimum_bid: Lance mínimo inicial
+      minimum_bid_difference: Diferença minima entre lances
+      status: Estado
+      make_bid: Fazer lance
+      last_bid: Ultimo lance
+      bids: Lances
+      not_initialized: Lances não iniciado

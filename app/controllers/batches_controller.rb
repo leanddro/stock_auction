@@ -24,7 +24,7 @@ class BatchesController < AdminController
 
   def approve
     batch = Batch.find(params[:id])
-    if batch.create_by != current_user && batch.pending?
+    if batch.create_by != current_user && batch.pending? && batch.end_at > DateTime.now
       batch.approved_by = current_user
       batch.approved!
       return redirect_to batch, notice: t('.success')
