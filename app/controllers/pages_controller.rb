@@ -15,4 +15,17 @@ class PagesController < ApplicationController
   def winners
     @batches = Batch.where(status: ['finished']).reverse_order
   end
+
+  def search
+    query = params[:query]
+
+    @batches = Batch.where('code LIKE ?', "%#{query}%").to_a
+    items = Item.where('name LIKE ?', "%#{query}%").where.not(batch_id: nil)
+
+    for item in items
+      @batches << item.batch
+    end
+
+    @batches.uniq!
+  end
 end

@@ -47,20 +47,20 @@ item_9.save!
 
 #Lotes
 batch_1 = Batch.create!(code: 'AcSx*1-mL', start_at: DateTime.now.next_day(10), end_at: DateTime.now.next_day(30), minimum_bid: 100, minimum_bid_difference: 10, create_by: admir)
-item_1.batch_id = batch_1
+item_1.batch = batch_1
 item_1.unavailable!
-item_6.batch_id = batch_1
+item_6.batch = batch_1
 item_6.unavailable!
-item_8.batch_id = batch_1
+item_8.batch = batch_1
 item_8.unavailable!
 
 batch_2 = Batch.new(code: 'AcD+1*?Lg', start_at: DateTime.now, end_at: DateTime.now.next_day(20), minimum_bid: 150, minimum_bid_difference: 30, create_by: ana)
 batch_2.save(validate: false)
-item_3.batch_id = batch_2
+item_3.batch = batch_2
 item_3.unavailable!
-item_5.batch_id = batch_2
+item_5.batch = batch_2
 item_5.unavailable!
-item_9.batch_id = batch_2
+item_9.batch = batch_2
 item_9.unavailable!
 batch_2.approved_by = admir
 batch_2.approved!
@@ -68,11 +68,11 @@ batch_2.approved!
 
 batch_3 = Batch.new(code: 'BxF-2!?nJ', start_at: DateTime.now.prev_month, end_at: DateTime.now.prev_day(20), minimum_bid: 200, minimum_bid_difference: 50, create_by: admir)
 batch_3.save(validate: false)
-item_2.batch_id = batch_3
+item_2.batch = batch_3
 item_2.unavailable!
-item_4.batch_id = batch_3
+item_4.batch = batch_3
 item_4.unavailable!
-item_7.batch_id = batch_3
+item_7.batch = batch_3
 item_7.unavailable!
 batch_3.approved_by = ana
 batch_3.approved!
@@ -85,6 +85,9 @@ Bid.create!(batch: batch_3, user: joao, amount: 420)
 batch_3.winner = joao
 batch_3.items.each(&:sealed!)
 batch_3.finished!
+
+commit_1 = Comment.create!(batch: batch_2, user: leandro, content: 'Qual forma de entrega?')
+Comment.create!(batch: batch_2, user: ana, content: 'Sedex', parent: commit_1)
 
 
 
