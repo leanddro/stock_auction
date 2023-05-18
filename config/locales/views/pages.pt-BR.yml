@@ -22,8 +22,10 @@ pt-BR:
       bids: Lances
       not_initialized: Lances não iniciado
       items: Itens
+      comments: Comentários
+      submit: Enviar
     winners:
       winners: Ganhadores
-      
+
 
 

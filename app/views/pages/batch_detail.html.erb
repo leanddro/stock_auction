@@ -56,4 +56,49 @@
       <% end %>
     </div>
   </div>
+  <div class="divide mt-8"></div>
+  <h2 class="text-3xl"> <%= t(".comments") %></h2>
+  <div id="comments">
+    <div class="border-2 border-gray-300 p-4">
+      <% @comments.each do |comment| %>
+        <div class="chat chat-start">
+          <div class="chat-header">
+            <%= comment.user.name %>
+            <time class="text-xs opacity-50"><%= l(comment.created_at, format: :long) %></time>
+          </div>
+          <div class="chat-bubble"><%= comment.content %></div>
+        </div>
+        <% if comment.comments.present? %>
+          <% comment.comments.each do |c| %>
+            <div class="chat chat-end">
+              <div class="chat-header">
+                <%= c.user.name %>
+                <time class="text-xs opacity-50"><%= l(c.created_at, format: :long) %></time>
+              </div>
+              <div class="chat-bubble"><%= c.content %></div>
+            </div>
+          <% end %>
+        <% else %>
+          <% if current_user.admin? %>
+            <%= form_with model: @new_comment, data: { turbo: false }, class: 'w-full flex flex-col  lg:flex-row lg:items-end' do |f| %>
+              <input type="number" name="comment[batch_id]" value="<%= @batch.id %>" hidden>
+              <input type="number" name="comment[parent_id]" value="<%= comment.id %>" hidden>
+              <%= f.label :content, hidden: true %>
+              <%= f.text_area :content, class: 'textarea textarea-bordered w-11/12' %>
+              <%= f.submit t('.submit'), class: 'btn w-1/12' %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <div class="divide mt-8"></div>
+      <% end %>
+    </div>
+    <% if current_user.present? && current_user.regular? %>
+      <%= form_with model: @new_comment, data: { turbo: false }, class: 'w-full flex flex-col  lg:flex-row lg:items-end ' do |f| %>
+        <input type="number" name="comment[batch_id]" value="<%= @batch.id %>" hidden>
+        <%= f.label :content, hidden: true %>
+        <%= f.text_area :content, class: 'textarea textarea-bordered w-11/12' %>
+        <%= f.submit t('.submit'), class: 'btn w-1/12' %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
