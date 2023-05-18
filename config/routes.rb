@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     post 'item/:item_id', on: :member, to: 'batches#add', as: 'add_item'
   end
   resources :bids, only: %i(create)
+  resources :comments, only: %i(create)
 end

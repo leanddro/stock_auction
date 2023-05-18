@@ -8,6 +8,8 @@ class PagesController < ApplicationController
     @batch = Batch.find(params[:id])
     @new_bid = Bid.new
     @last_bid = @batch.bids.last
+    @new_comment = Comment.new
+    @comments = Comment.where(batch: @batch, parent: nil)
   end
 
   def winners
