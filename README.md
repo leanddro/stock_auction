@@ -50,6 +50,8 @@
 
 :white_check_mark: Finalizar o leilão quando a lances quando não cancelar
 
+:white_check_mark: Dúvidas/comentários e respostas sobre um lote
+
 ## Pré-requisitos
 
 :warning: [Ruby: versão 3.2.1](https://www.ruby-lang.org/en/downloads/)
@@ -105,8 +107,6 @@ rspec
 Para ver a cobertura de teste e só abrir o arquivo index ou executar um http server na pasta coverage.
 
 ## TODO
-
-:white_square_button: Dúvidas/comentários e respostas sobre um lote
 
 :white_square_button: Bloqueio de CPF
 
