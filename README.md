@@ -4,7 +4,7 @@
   <img src="http://img.shields.io/static/v1?label=Ruby&message=3.2.1&color=red&style=for-the-badge&logo=ruby"/>
   <img src="http://img.shields.io/static/v1?label=Ruby%20On%20Rails%20&message=7.0.4.3&color=red&style=for-the-badge&logo=ruby"/>
   <img src="http://img.shields.io/static/v1?label=TESTES&message=%3E100&color=GREEN&style=for-the-badge"/>
-	<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge"/>
+  <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge"/>
 </p>
 
 ### Tópicos
@@ -26,6 +26,9 @@
 </p>
 
 ## Modelo ER
+
+![modelo er](https://github.com/leanddro/stock_auction/assets/75085756/a52dd0cb-2254-4517-a400-e305c9220b77)
+
 ## Funcionalidades
 
 :white_check_mark: Cadastro de usuários dos tipos(Admin, Regular)
