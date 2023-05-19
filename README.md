@@ -52,6 +52,8 @@
 
 :white_check_mark: Dúvidas/comentários e respostas sobre um lote
 
+:white_check_mark: Buscar por produto
+
 ## Pré-requisitos
 
 :warning: [Ruby: versão 3.2.1](https://www.ruby-lang.org/en/downloads/)
@@ -112,4 +114,3 @@ Para ver a cobertura de teste e só abrir o arquivo index ou executar um http se
 
 :white_square_button: Lote favorito
 
-:white_square_button: Buscar por produto
